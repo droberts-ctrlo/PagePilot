@@ -2,6 +2,11 @@ import { prefix } from '../../common/constants';
 import Step from './Step';
 import StepOptions from './StepOptions';
 
+/**
+ * Parses an element into a step
+ * @param element The element to parse
+ * @param stepOptions The options for the step
+ */
 export default <T extends HTMLElement = HTMLElement>(element: T, stepOptions: StepOptions = { prefix }) => {
     const data = element.dataset;
     const myPrefix = stepOptions.prefix;

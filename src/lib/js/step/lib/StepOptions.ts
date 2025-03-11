@@ -1,8 +1,7 @@
+/**
+ * Step options
+ * @property {string} prefix Prefix for the data fields
+ */
 export default interface StepOptions {
     prefix?: string
-    onNext?: () => void
-    onPrev?: () => void
-    onFinish?: () => void
-    onSkip?: () => void
-    onDone?: () => void
 }

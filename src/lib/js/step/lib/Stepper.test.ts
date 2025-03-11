@@ -311,4 +311,38 @@ describe('Stepper', () => {
         stepper.done();
         expect(onDone).toHaveBeenCalled();
     });
+
+    it('should skip disabled steps when going to the next step', () => {
+        const steps: Step[] = [
+            {
+                active: true,
+                completed: false,
+                content: 'This is step 1',
+                disabled: false,
+                element: document.createElement('div'),
+                number: 1
+            },
+            {
+                active: false,
+                completed: false,
+                content: 'This is step 2',
+                disabled: true,
+                element: document.createElement('div'),
+                number: 2
+            },
+            {
+                active: false,
+                completed: false,
+                content: 'This is step 3',
+                disabled: false,
+                element: document.createElement('div'),
+                number: 3
+            }
+        ];
+        const stepper = new Stepper(document.createElement('div'), steps);
+        stepper.next();
+        expect(steps[0].active).toBe(false);
+        expect(steps[1].active).toBe(false);
+        expect(steps[2].active).toBe(true);
+    });
 });

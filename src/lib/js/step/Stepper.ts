@@ -1,3 +1,4 @@
+import '../../css/step/index.scss';
 import Step from './Step';
 
 export default class Stepper<T extends HTMLElement = HTMLElement> {

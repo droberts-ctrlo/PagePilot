@@ -1,0 +1,36 @@
+@use "./variables" as *;
+
+#background-fade {
+  background: $fade-color;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: $fade-z-index;
+}
+
+.highlight {
+  z-index: $highlight-z-index;
+  position: relative;
+  background: $highlight-bg;
+}
+
+#helper-layer {
+  border: $helper-border;
+  z-index: $helper-z-index;
+  border-radius: $helper-border-radius;
+  position: absolute;
+  background: $highlight-bg;
+  
+  * {
+    box-sizing: content-box;
+    margin: 0;
+
+    &::before, &::after {
+      box-sizing: content-box;
+    }
+  }
+}

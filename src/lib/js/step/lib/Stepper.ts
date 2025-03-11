@@ -1,3 +1,4 @@
+import { Events } from './Events';
 import Step from './Step';
 
 /**
@@ -7,6 +8,10 @@ import Step from './Step';
  * @template T The type of the root element
  */
 export default class Stepper<T extends HTMLElement = HTMLElement> {
+    private raiseEvent(element: HTMLElement, event: Events) {
+        element.dispatchEvent(new CustomEvent(event));
+    }
+
     /**
      * The current active step
      */
@@ -44,7 +49,7 @@ export default class Stepper<T extends HTMLElement = HTMLElement> {
             this.done();
             return;
         }
-        activeStep.element.dispatchEvent(new CustomEvent('next'));
+        this.raiseEvent(activeStep.element, 'stepper.next');
         activeStep.active = false;
         nextStep.active = true;
     }
@@ -57,7 +62,7 @@ export default class Stepper<T extends HTMLElement = HTMLElement> {
         if (!activeStep) return;
         const previousStep = this.steps.find(step => step.number === activeStep.number - 1);
         if (!previousStep) return;
-        activeStep.element.dispatchEvent(new CustomEvent('previous'));
+        this.raiseEvent(activeStep.element, 'stepper.prev');
         activeStep.active = false;
         previousStep.active = true;
     }
@@ -68,8 +73,8 @@ export default class Stepper<T extends HTMLElement = HTMLElement> {
     done() {
         const activeStep = this.activeStep;
         if (!activeStep) return;
-        activeStep.element.dispatchEvent(new CustomEvent('done'));
-        this.rootElement.dispatchEvent(new CustomEvent('done'));
+        this.raiseEvent(activeStep.element, 'stepper.done');
+        this.raiseEvent(this.rootElement, 'stepper.baseDone');
         activeStep.completed = true;
         activeStep.active = false;
     }

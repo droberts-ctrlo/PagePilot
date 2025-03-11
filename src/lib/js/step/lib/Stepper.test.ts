@@ -166,7 +166,7 @@ describe('Stepper', () => {
     it('should call the onNext callback when going to the next step', () => {
         const onNext = jest.fn();
         const stepElement = document.createElement('div');
-        stepElement.addEventListener('next', onNext);
+        stepElement.addEventListener('stepper.next', onNext);
         const steps: Step[] = [
             {
                 active: true,
@@ -193,7 +193,7 @@ describe('Stepper', () => {
     it('should call the onPrev callback when going to the previous step', () => {
         const onPrev = jest.fn();
         const stepElement = document.createElement('div');
-        stepElement.addEventListener('previous', onPrev);
+        stepElement.addEventListener('stepper.prev', onPrev);
         const steps: Step[] = [
             {
                 active: false,
@@ -220,7 +220,7 @@ describe('Stepper', () => {
     it('should call the onDone callback when marking the final step as completed', () => {
         const onDone = jest.fn();
         const stepElement = document.createElement('div');
-        stepElement.addEventListener('done', onDone);
+        stepElement.addEventListener('stepper.done', onDone);
         const steps: Step[] = [
             {
                 active: true,
@@ -239,7 +239,7 @@ describe('Stepper', () => {
     it('should not call the onNext callback when going to the next step if there is no next step', () => {
         const onNext = jest.fn();
         const stepElement = document.createElement('div');
-        stepElement.addEventListener('next', onNext);
+        stepElement.addEventListener('stepper.next', onNext);
         const steps: Step[] = [
             {
                 active: true,
@@ -258,7 +258,7 @@ describe('Stepper', () => {
     it('should not call the onPrev callback when going to the previous step if there is no previous step', () => {
         const onPrev = jest.fn();
         const stepElement = document.createElement('div');
-        stepElement.addEventListener('previous', onPrev);
+        stepElement.addEventListener('stepper.previous', onPrev);
         const steps: Step[] = [
             {
                 active: false,
@@ -277,7 +277,7 @@ describe('Stepper', () => {
     it('should not call the onDone callback when marking the final step as completed if there is no final step', () => {
         const onDone = jest.fn();
         const stepElement = document.createElement('div');
-        stepElement.addEventListener('done', onDone);
+        stepElement.addEventListener('stepper.done', onDone);
         const steps: Step[] = [
             {
                 active: false,
@@ -306,7 +306,7 @@ describe('Stepper', () => {
             }
         ];
         const el = document.createElement('div');
-        el.addEventListener('done', onDone);
+        el.addEventListener('stepper.baseDone', onDone);
         const stepper = new Stepper(el, steps);
         stepper.done();
         expect(onDone).toHaveBeenCalled();

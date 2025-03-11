@@ -8,8 +8,8 @@
     "strict": true,                                      /* Enable all strict type-checking options. */
     "skipLibCheck": true,                                /* Skip type checking all .d.ts files. */
     "paths": {
-      "js/*": ["src/js/*"],
-      "scss/*": ["src/scss/*"]
+      "js/*": ["src/lib/js/*"],
+      "scss/*": ["src/scss/*"],
     }
   },
   "exclude": ["node_modules", "public", "src/**/*.test.tsx", "src/**/*.test.ts"],

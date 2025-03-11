@@ -1,4 +1,4 @@
-import '../../css/step/index.scss';
+import 'scss/step/index.scss';
 
 import Step from './lib/Step';
 import StepOptions from './lib/StepOptions';

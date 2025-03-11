@@ -36,7 +36,10 @@ export default class Stepper<T extends HTMLElement = HTMLElement> {
      */
     next() {
         const activeStep = this.activeStep;
-        if (!activeStep) return;
+        if (!activeStep) {
+            this.steps[0].active = true;
+            return;
+        }
         let nextStep = this.steps.find(step => step.number === activeStep.number + 1);
         if (!nextStep) {
             this.done();
@@ -77,5 +80,15 @@ export default class Stepper<T extends HTMLElement = HTMLElement> {
         this.raiseEvent(this.rootElement, 'stepper.baseDone');
         activeStep.completed = true;
         activeStep.active = false;
+    }
+
+    /**
+     * Reset the stepper
+     */
+    reset() {
+        this.steps.forEach(step => {
+            step.active = false;
+            step.completed = false;
+        });
     }
 }

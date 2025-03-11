@@ -345,4 +345,21 @@ describe('Stepper', () => {
         expect(steps[1].active).toBe(false);
         expect(steps[2].active).toBe(true);
     });
+
+    it('Should start the stepper if no step is active', () => {
+        const steps: Step[] = [
+            {
+                active: false,
+                completed: false,
+                content: 'This is step 1',
+                disabled: false,
+                element: document.createElement('div'),
+                number: 1
+            }
+        ];
+        const stepper = new Stepper(document.createElement('div'), steps);
+        expect(stepper.activeStep).toBeUndefined();
+        stepper.next();
+        expect(stepper.activeStep).toBe(steps[0]);
+    });
 });

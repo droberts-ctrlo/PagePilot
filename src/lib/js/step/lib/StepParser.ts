@@ -1,4 +1,4 @@
-import { prefix } from '../common/constants';
+import { prefix } from '../../common/constants';
 import Step from './Step';
 import StepOptions from './StepOptions';
 

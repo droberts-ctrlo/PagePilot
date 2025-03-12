@@ -1,0 +1,19 @@
+.popover {
+    text-align: center;
+    .tooltip-footer {
+        display: flex;
+        flex-direction: row;
+        justify-content: end;
+        flex-wrap: nowrap;
+        background-color: var(--bs-popover-header-bg);
+        padding: var(--bs-popover-header-padding-y) var(--bs-popover-header-padding-x);
+        margin: calc(var(--bs-popover-body-padding-y)*-1) calc(var(--bs-popover-body-padding-x)*-1);
+        margin-top: 0;
+        .tooltip-button {
+            margin-right: 1rem;
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+}

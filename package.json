@@ -33,6 +33,9 @@
     "webpack-dev-server": "^5.2.0"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "serve": "webpack serve --mode development --no-client-overlay",
+    "build": "NODE_ENV=production webpack --mode production --progress",
+    "build:dev": "webpack --mode development --progress -w"
   }
 }

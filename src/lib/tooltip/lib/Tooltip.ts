@@ -13,7 +13,7 @@ export default class Tooltip<T extends HTMLElement = HTMLElement> {
             title: data[`${prefix}Title`] ?? '',
             content: this.createContent(data[`${prefix}Content`]!, ...buttons),
             html: true,
-            trigger: "click",
+            trigger: "manual",
             placement: "bottom"
         });
     }

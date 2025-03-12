@@ -11,14 +11,14 @@ describe('StepParser', () => {
 
     it('errors if the element has no content', () => {
         const element = document.createElement('div');
-        element.dataset['pp_number'] = '1';
+        element.dataset['ppNumber'] = '1';
         expect(() => StepParser(element)).toThrow('No content found on element');
     });
 
     it('parses the element with only content', () => {
         const element = document.createElement('div');
-        element.dataset['pp_number'] = '1';
-        element.dataset['pp_content'] = 'Step 1';
+        element.dataset['ppNumber'] = '1';
+        element.dataset['ppContent'] = 'Step 1';
         expect(StepParser(element)).toEqual({
             active: false,
             completed: false,
@@ -31,10 +31,10 @@ describe('StepParser', () => {
     });
 
     it('parses the element with a custom prefix and only content', () => {
-        const options: StepOptions = { prefix: 'ls_' };
+        const options: StepOptions = { prefix: 'ls' };
         const element = document.createElement('div');
-        element.dataset['ls_number'] = '1';
-        element.dataset['ls_content'] = 'Step 1';
+        element.dataset['lsNumber'] = '1';
+        element.dataset['lsContent'] = 'Step 1';
         expect(StepParser(element, options)).toEqual({
             active: false,
             completed: false,
@@ -48,9 +48,9 @@ describe('StepParser', () => {
 
     it('parses the element with content and title', () => {
         const element = document.createElement('div');
-        element.dataset['pp_number'] = '1';
-        element.dataset['pp_content'] = 'Step 1';
-        element.dataset['pp_title'] = 'Title 1';
+        element.dataset['ppNumber'] = '1';
+        element.dataset['ppContent'] = 'Step 1';
+        element.dataset['ppTitle'] = 'Title 1';
         expect(StepParser(element)).toEqual({
             active: false,
             completed: false,
@@ -64,10 +64,10 @@ describe('StepParser', () => {
 
     it('parses the element with content, title, and disabled', () => {
         const element = document.createElement('div');
-        element.dataset['pp_number'] = '1';
-        element.dataset['pp_content'] = 'Step 1';
-        element.dataset['pp_title'] = 'Title 1';
-        element.dataset['pp_disabled'] = 'true';
+        element.dataset['ppNumber'] = '1';
+        element.dataset['ppContent'] = 'Step 1';
+        element.dataset['ppTitle'] = 'Title 1';
+        element.dataset['ppDisabled'] = 'true';
         expect(StepParser(element)).toEqual({
             active: false,
             completed: false,
@@ -81,8 +81,8 @@ describe('StepParser', () => {
 
     it('parses the element with a different element type', () => {
         const element = document.createElement('li');
-        element.dataset['pp_number'] = '1';
-        element.dataset['pp_content'] = 'Step 1';
+        element.dataset['ppNumber'] = '1';
+        element.dataset['ppContent'] = 'Step 1';
         const result = StepParser(element);
         expect(result).toEqual({
             active: false,

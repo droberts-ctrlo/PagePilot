@@ -1,19 +1,20 @@
 import { Popover } from 'bootstrap';
-import { prefix } from '../../common/constants';
+import { prefix as commonPrefix } from '../../common/constants';
 import TooltipButton from './TooltipButton';
+import { TooltipConfig } from './ToolTipConfig';
 
 export default class Tooltip<T extends HTMLElement = HTMLElement> {
-    popover: Popover;
+    private popover: Popover;
 
-    constructor(element: T, ...buttons: TooltipButton[]) {
-        if(!element) throw new Error('Element not found');
+    constructor({ element, buttons, prefix = commonPrefix }: TooltipConfig<T>) {
+        if (!element) throw new Error('Element not found');
         const data = element.dataset;
-        if(!data[`${prefix}Content`]) throw new Error('No content found on element');
+        if (!data[`${prefix}Content`]) throw new Error('No content found on element');
         this.popover = new Popover(element, {
             title: data[`${prefix}Title`] ?? '',
             content: this.createContent(data[`${prefix}Content`]!, ...buttons),
             html: true,
-            trigger: "click",
+            trigger: "manual",
             placement: "bottom"
         });
     }
@@ -50,5 +51,13 @@ export default class Tooltip<T extends HTMLElement = HTMLElement> {
         }
         else button.addEventListener('click', onClick);
         return button;
+    }
+
+    show() {
+        this.popover.show();
+    }
+
+    hide() {
+        this.popover.hide();
     }
 }

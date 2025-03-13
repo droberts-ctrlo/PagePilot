@@ -166,7 +166,7 @@ describe('Stepper', () => {
     it('should call the onNext callback when going to the next step', () => {
         const onNext = jest.fn();
         const stepElement = document.createElement('div');
-        stepElement.addEventListener('stepper.next', onNext);
+        stepElement.addEventListener('stepper.leave', onNext);
         const steps: Step[] = [
             {
                 active: true,
@@ -193,7 +193,7 @@ describe('Stepper', () => {
     it('should call the onPrev callback when going to the previous step', () => {
         const onPrev = jest.fn();
         const stepElement = document.createElement('div');
-        stepElement.addEventListener('stepper.prev', onPrev);
+        stepElement.addEventListener('stepper.leave', onPrev);
         const steps: Step[] = [
             {
                 active: false,
@@ -215,25 +215,6 @@ describe('Stepper', () => {
         const stepper = new Stepper(document.createElement('div'), steps);
         stepper.previous();
         expect(onPrev).toHaveBeenCalled();
-    });
-
-    it('should call the onDone callback when marking the final step as completed', () => {
-        const onDone = jest.fn();
-        const stepElement = document.createElement('div');
-        stepElement.addEventListener('stepper.done', onDone);
-        const steps: Step[] = [
-            {
-                active: true,
-                completed: false,
-                content: 'This is step 1',
-                disabled: false,
-                element: stepElement,
-                number: 1
-            }
-        ];
-        const stepper = new Stepper(document.createElement('div'), steps);
-        stepper.done();
-        expect(onDone).toHaveBeenCalled();
     });
 
     it('should not call the onNext callback when going to the next step if there is no next step', () => {
@@ -306,7 +287,7 @@ describe('Stepper', () => {
             }
         ];
         const el = document.createElement('div');
-        el.addEventListener('stepper.baseDone', onDone);
+        el.addEventListener('stepper.done', onDone);
         const stepper = new Stepper(el, steps);
         stepper.done();
         expect(onDone).toHaveBeenCalled();

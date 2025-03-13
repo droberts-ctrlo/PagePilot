@@ -1,20 +1,22 @@
 // Generated using webpack-cli https://github.com/webpack/webpack-cli
 
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const isProduction = process.env.NODE_ENV === 'production';
 const stylesHandler = MiniCssExtractPlugin.loader;
+const {CleanWebpackPlugin} = require('clean-webpack-plugin')
+const TerserPlugin = require('terser-webpack-plugin');
 
 const config = {
-    entry: './src/index.ts',
+    entry: {
+        index: path.resolve(__dirname,'./src/index.ts'),
+        '../css/styles': path.resolve(__dirname,'./src/css/index.scss'),
+    },
     output: {
-        path: path.resolve(__dirname, 'public'),
+        path: path.resolve(__dirname, 'dist/js'),
     },
     plugins: [
-        new HtmlWebpackPlugin({
-            template: 'index.html',
-        }),
+        new CleanWebpackPlugin(),
         new MiniCssExtractPlugin(),
     ],
     module: {
@@ -36,11 +38,6 @@ const config = {
                 test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
                 type: 'asset',
             },
-            
-            {
-                test: /\.html$/i,
-                use: ['html-loader'],
-            },
         ],
     },
     resolve: {
@@ -51,6 +48,17 @@ const config = {
 module.exports = () => {
     if (isProduction) {
         config.mode = 'production';
+        config.optimization = {
+            minimize: true,
+            minimizer: [new TerserPlugin({
+                terserOptions: {
+                    format: {
+                        comments: false,
+                    }
+                },
+                extractComments: false
+            })],
+        }
     } else {
         config.mode = 'development';
     }

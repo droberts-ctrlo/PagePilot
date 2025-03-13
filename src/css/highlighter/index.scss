@@ -1,4 +1,4 @@
-@use "./variables" as *;
+@import "./variables";
 
 #background-fade {
   background: $fade-color;
@@ -13,24 +13,11 @@
 }
 
 .highlight {
+  border: $helper-border;
+  border-radius: $helper-border-radius;
   z-index: $highlight-z-index;
   position: relative;
   background: $highlight-bg;
-}
-
-#helper-layer {
-  border: $helper-border;
-  z-index: $helper-z-index;
-  border-radius: $helper-border-radius;
-  position: absolute;
-  background: $highlight-bg;
-  
-  * {
-    box-sizing: content-box;
-    margin: 0;
-
-    &::before, &::after {
-      box-sizing: content-box;
-    }
-  }
+  transition: all 0.3s;
+  transform: scale(1.05);
 }

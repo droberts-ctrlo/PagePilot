@@ -12,6 +12,17 @@ export default class Stepper<T extends HTMLElement = HTMLElement> {
         element.dispatchEvent(new CustomEvent(event));
     }
 
+    getLastStep() {
+        if(this.steps.length == 0) return undefined;
+        let last = this.steps[this.steps.length - 1];
+        let decrement = 2;
+        while(last.disabled && decrement <= this.steps.length) {
+            last = this.steps[this.steps.length - decrement];
+            decrement++;
+        }
+        return last;
+    }
+
     /**
      * The current active step
      */
@@ -26,7 +37,7 @@ export default class Stepper<T extends HTMLElement = HTMLElement> {
         return this.steps.length;
     }
 
-    constructor(private rootElement: T | HTMLElement, private steps: Step<T>[]) {
+    constructor(private rootElement: HTMLElement, private steps: Step<T>[]) {
         if (!Array.isArray(steps)) throw new Error('Steps must be an array');
         if (steps.length === 0) throw new Error('No steps provided');
     }
@@ -38,6 +49,7 @@ export default class Stepper<T extends HTMLElement = HTMLElement> {
         const activeStep = this.activeStep;
         if (!activeStep) {
             this.steps[0].active = true;
+            this.raiseEvent(this.activeStep!.element, 'stepper.enter');
             return;
         }
         let nextStep = this.steps.find(step => step.number === activeStep.number + 1);
@@ -45,14 +57,17 @@ export default class Stepper<T extends HTMLElement = HTMLElement> {
             this.done();
             return;
         }
-        if (nextStep.disabled) {
-            nextStep = this.steps.find(step => step.number === activeStep.number + 2);
+        let increment = 2;
+        while (nextStep?.disabled == true) {
+            nextStep = this.steps.find(step => step.number === activeStep.number + increment);
+            increment++;
         }
         if (!nextStep) {
             this.done();
             return;
         }
-        this.raiseEvent(activeStep.element, 'stepper.next');
+        this.raiseEvent(activeStep.element, 'stepper.leave');
+        this.raiseEvent(nextStep.element, 'stepper.enter');
         activeStep.active = false;
         nextStep.active = true;
     }
@@ -65,7 +80,8 @@ export default class Stepper<T extends HTMLElement = HTMLElement> {
         if (!activeStep) return;
         const previousStep = this.steps.find(step => step.number === activeStep.number - 1);
         if (!previousStep) return;
-        this.raiseEvent(activeStep.element, 'stepper.prev');
+        this.raiseEvent(activeStep.element, 'stepper.leave');
+        this.raiseEvent(previousStep.element, 'stepper.enter');
         activeStep.active = false;
         previousStep.active = true;
     }
@@ -76,8 +92,8 @@ export default class Stepper<T extends HTMLElement = HTMLElement> {
     done() {
         const activeStep = this.activeStep;
         if (!activeStep) return;
-        this.raiseEvent(activeStep.element, 'stepper.done');
-        this.raiseEvent(this.rootElement, 'stepper.baseDone');
+        this.raiseEvent(this.rootElement, 'stepper.done');
+        this.raiseEvent(activeStep.element, 'stepper.leave');
         activeStep.completed = true;
         activeStep.active = false;
     }

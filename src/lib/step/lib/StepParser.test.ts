@@ -1,6 +1,5 @@
 import { describe, expect, it } from '@jest/globals';
 import StepParser from './StepParser';
-import StepOptions from './StepOptions';
 
 describe('StepParser', () => {
     it('errors if the element has no number', () => {
@@ -31,7 +30,7 @@ describe('StepParser', () => {
     });
 
     it('parses the element with a custom prefix and only content', () => {
-        const options: StepOptions = { prefix: 'ls' };
+        const options = { prefix: 'ls' };
         const element = document.createElement('div');
         element.dataset['lsNumber'] = '1';
         element.dataset['lsContent'] = 'Step 1';

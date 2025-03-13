@@ -1,1 +1,5 @@
-@use "./bootstrap";
+@import "./bootstrap";
+
+@import "./highlighter/index.scss";
+@import "./step/index.scss";
+@import "./tooltip/index.scss";

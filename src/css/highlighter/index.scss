@@ -1,0 +1,23 @@
+@import "./variables";
+
+#background-fade {
+  background: $fade-color;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: $fade-z-index;
+}
+
+.highlight {
+  border: $helper-border;
+  border-radius: $helper-border-radius;
+  z-index: $highlight-z-index;
+  position: relative;
+  background: $highlight-bg;
+  transition: all 0.3s;
+  transform: scale(1.05);
+}

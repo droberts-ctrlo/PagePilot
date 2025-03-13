@@ -1,5 +1,5 @@
 {
-  "name": "PagePilot",
+  "name": "page-pilot",
   "version": "1.0.0",
   "description": "Walkthrough component for use with BootStrap 5",
   "main": "index.js",
@@ -7,7 +7,7 @@
   "author": "Dave Roberts <d.roberts@ctrlo.com>",
   "license": "MIT",
   "devDependencies": {
-    "@babel/core": "^7.26.9",
+    "@babel/core": "^7.26.10",
     "@babel/preset-env": "^7.26.9",
     "@babel/preset-typescript": "^7.26.0",
     "@eslint/js": "^9.22.0",

@@ -5,8 +5,8 @@ $fade-color: rgba(black, 0.5) !default;
 //helper
 $helper-z-index: 1001 !default;
 $helper-border-radius: var(--bs-border-radius, 5px) !default;
-$helper-border-color: var(--bs-primary-border-subtle, var(--bs-body-bg, white)) !default;
-$helper-border-width: var(--bs-border-width, 3px) !default;
+$helper-border-color: var(--bs-primary, var(--bs-body-bg, white)) !default;
+$helper-border-width: 3px !default;
 $helper-border-style: var(--bs-border-style, solid) !default;
 $helper-border: $helper-border-width $helper-border-style $helper-border-color !default;
 

@@ -1,1 +1,1 @@
-export type Events = 'stepper.done' | 'stepper.next' | 'stepper.prev' | 'stepper.baseDone' | 'stepper.start';
+export type Events = 'stepper.done' | 'stepper.start' | 'stepper.enter' | 'stepper.leave';

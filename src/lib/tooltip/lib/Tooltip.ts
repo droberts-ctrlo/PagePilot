@@ -4,7 +4,7 @@ import TooltipButton from './TooltipButton';
 import { TooltipConfig } from './ToolTipConfig';
 
 export default class Tooltip<T extends HTMLElement = HTMLElement> {
-    popover: Popover;
+    private popover: Popover;
 
     constructor({ element, buttons, prefix = commonPrefix }: TooltipConfig<T>) {
         if (!element) throw new Error('Element not found');
@@ -51,5 +51,13 @@ export default class Tooltip<T extends HTMLElement = HTMLElement> {
         }
         else button.addEventListener('click', onClick);
         return button;
+    }
+
+    show() {
+        this.popover.show();
+    }
+
+    hide() {
+        this.popover.hide();
     }
 }

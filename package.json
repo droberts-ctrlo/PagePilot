@@ -2,7 +2,10 @@
   "name": "page-pilot",
   "version": "1.0.0",
   "description": "Walkthrough component for use with BootStrap 5",
-  "main": "index.js",
+  "main": "./dist/js/index.js",
+  "module": "./dist/js/index.js",
+  "sass": "./src/sass/index.scss",
+  "style": "./dist/css/index.css",
   "repository": "https://github.com/droberts-ctrlo/PagePilot",
   "author": "Dave Roberts <d.roberts@ctrlo.com>",
   "license": "MIT",
@@ -15,16 +18,16 @@
     "@stylistic/eslint-plugin": "^4.2.0",
     "@types/bootstrap": "^5.2.10",
     "bootstrap": "^5.3.3",
+    "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^7.1.2",
     "eslint": "^9.22.0",
     "globals": "^16.0.0",
-    "html-loader": "^5.1.0",
-    "html-webpack-plugin": "^5.6.3",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "mini-css-extract-plugin": "^2.9.2",
     "sass": "^1.85.1",
     "sass-loader": "^16.0.5",
+    "terser-webpack-plugin": "^5.3.14",
     "ts-loader": "^9.5.2",
     "typescript": "^5.8.2",
     "typescript-eslint": "^8.26.1",
@@ -37,5 +40,6 @@
     "serve": "webpack serve --mode development --no-client-overlay",
     "build": "NODE_ENV=production webpack --mode production --progress",
     "build:dev": "webpack --mode development --progress -w"
-  }
+  },
+  "dependencies": {}
 }

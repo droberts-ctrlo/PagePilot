@@ -5,7 +5,7 @@ import stylistic from "@stylistic/eslint-plugin";
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
-  { ignores: ["node_modules", "public", "webpack.config.js", "eslint.config.mjs", "babel.config.js", "jest.config.js"] },
+  { ignores: ["node_modules", "public", "webpack.config.js", "eslint.config.mjs", "babel.config.js", "jest.config.js","dist","install.cjs"] },
   { files: ["**/*.{js,mjs,cjs,ts}"] },
   { languageOptions: { globals: globals.browser } },
   pluginJs.configs.recommended,
@@ -17,7 +17,7 @@ export default [
       "@stylistic/indent": ["error", 4],
       "@stylistic/semi": ["error", "always"],
       "@stylistic/comma-dangle": ["error", "never"],
-      "@stylistic/brace-style": ["none"],
+      "@stylistic/brace-style": "off",
     }
   }
 ];

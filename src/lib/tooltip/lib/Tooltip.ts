@@ -1,5 +1,5 @@
 import { Popover } from 'bootstrap';
-import { prefix as commonPrefix } from '../../common/constants';
+import { prefix as commonPrefix } from 'common/constants';
 import TooltipButton from './TooltipButton';
 import { TooltipConfig } from './ToolTipConfig';
 
@@ -14,8 +14,8 @@ export default class Tooltip<T extends HTMLElement = HTMLElement> {
             title: data[`${prefix}Title`] ?? '',
             content: this.createContent(data[`${prefix}Content`]!, ...buttons),
             html: true,
-            trigger: "manual",
-            placement: "bottom"
+            trigger: 'manual',
+            placement: 'bottom'
         });
     }
 
@@ -26,7 +26,7 @@ export default class Tooltip<T extends HTMLElement = HTMLElement> {
         if (buttons && buttons.length) {
             const footerDiv = document.createElement('div');
             footerDiv.classList.add('tooltip-footer');
-            buttons.forEach(button => {
+            buttons.forEach((button) => {
                 footerDiv.appendChild(this.createButton(button));
             });
             div.appendChild(footerDiv);

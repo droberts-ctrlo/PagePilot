@@ -1,3 +1,3 @@
 export interface CommonOptions {
-    prefix: string;
+    prefix: string
 }

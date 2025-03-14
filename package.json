@@ -1,11 +1,7 @@
 {
   "name": "page-pilot",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Walkthrough component for use with BootStrap 5",
-  "main": "./dist/js/index.js",
-  "module": "./dist/js/index.js",
-  "sass": "./src/sass/index.scss",
-  "style": "./dist/css/index.css",
   "repository": "https://github.com/droberts-ctrlo/PagePilot",
   "author": "Dave Roberts <d.roberts@ctrlo.com>",
   "license": "MIT",

@@ -1,6 +1,6 @@
-import { Tooltip, TooltipButton } from "../../tooltip";
-import { Step, StepParser, Stepper, StepSorter } from "../../step";
-import { Highlight } from "../../highlighter";
+import { Tooltip, TooltipButton } from 'tooltip';
+import { Step, StepParser, Stepper, StepSorter } from 'step';
+import { Highlight } from 'highlighter';
 import 'bootstrap';
 
 export default class Tour<T extends HTMLElement = HTMLElement> {
@@ -20,8 +20,8 @@ export default class Tour<T extends HTMLElement = HTMLElement> {
 
     private setupStepsAndEvents(stepper: Stepper, steps: Step<T>[], highlighter: Highlight) {
         steps.forEach((step, index) => {
-            const buttons: TooltipButton[] = []
-            if (index!==0)
+            const buttons: TooltipButton[] = [];
+            if (index !== 0)
                 buttons.push(
                     {
                         text: 'Back',
@@ -44,7 +44,7 @@ export default class Tour<T extends HTMLElement = HTMLElement> {
                 element: step.element,
                 buttons: buttons,
                 prefix: 'pp'
-            }
+            };
             const tooltip = new Tooltip(config);
             step.element.addEventListener('stepper.enter', () => {
                 highlighter.highlight(step.element);

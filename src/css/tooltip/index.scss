@@ -5,13 +5,13 @@
         flex-direction: row;
         justify-content: end;
         flex-wrap: nowrap;
-        background-color: var(--bs-popover-header-bg);
-        padding: var(--bs-popover-header-padding-y) var(--bs-popover-header-padding-x);
-        margin: calc(var(--bs-popover-body-padding-y)*-1) calc(var(--bs-popover-body-padding-x)*-1);
+        background-color: var(--bs-popover-header-bg, white);
+        padding: var(--bs-popover-header-padding-y, 1rem) var(--bs-popover-header-padding-x, 0.5rem);
+        margin: calc(var(--bs-popover-body-padding-y, 1rem)*-1) calc(var(--bs-popover-body-padding-x, 1rem)*-1);
         margin-top: 0;
         .tooltip-button {
             margin-right: 1rem;
-            &:last-child {
+            &:last-of-type {
                 margin-right: 0;
             }
         }

@@ -1,14 +1,9 @@
 /**
  * Highlighter class
- * @property {number} x - x coordinate of the element
- * @property {number} y - y coordinate of the element
- * @property {number} width - width of the element
- * @property {number} height - height of the element
  */
 export default class Highlighter {
-    
     private fade!: HTMLDivElement;
-    
+
     constructor() {
         this.createFade();
         this.reset();
@@ -44,10 +39,10 @@ export default class Highlighter {
 
     private doScroll(element: HTMLElement) {
         // @ts-expect-error test is not defined
-        if(window.test) return;
+        if (window.test) return;
         const { top } = element.getBoundingClientRect();
-        const {scrollTop} = document.body;
-        var offset = Math.max(top + scrollTop-100,0);
+        const { scrollTop } = document.body;
+        const offset = Math.max(top + scrollTop - 100, 0);
         window.scrollTo(0, offset);
     }
 

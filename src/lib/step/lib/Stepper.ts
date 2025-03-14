@@ -13,10 +13,10 @@ export default class Stepper<T extends HTMLElement = HTMLElement> {
     }
 
     getLastStep() {
-        if(this.steps.length == 0) return undefined;
+        if (this.steps.length == 0) return undefined;
         let last = this.steps[this.steps.length - 1];
         let decrement = 2;
-        while(last.disabled && decrement <= this.steps.length) {
+        while (last.disabled && decrement <= this.steps.length) {
             last = this.steps[this.steps.length - decrement];
             decrement++;
         }
@@ -102,7 +102,7 @@ export default class Stepper<T extends HTMLElement = HTMLElement> {
      * Reset the stepper
      */
     reset() {
-        this.steps.forEach(step => {
+        this.steps.forEach((step) => {
             step.active = false;
             step.completed = false;
         });

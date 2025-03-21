@@ -14,7 +14,8 @@
       "import": "./dist/esm/index.js",
       "require": "./dist/cjs/index.js",
       "css": "./dist/css/index.css",
-      "default": "./dist/esm/index.js"
+      "default": "./dist/esm/index.js",
+      "types": "./dist/types/index.d.ts"
     }
   },
   "devDependencies": {

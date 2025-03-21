@@ -1,10 +1,10 @@
-import Step from './Step.js';
-
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * Sorts steps by their number
  * @param a The first step
  * @param b The second step
  */
-export default (a: Step, b: Step) => {
+exports.default = (a, b) => {
     return a.number - b.number;
 };

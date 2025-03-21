@@ -2,6 +2,8 @@
     "extends": "./tsconfig.json",
     "compilerOptions": {
         "outDir": "./dist/cjs",
-        "module": "esnext"
+        "module": "CommonJS",
+        "target": "ES2022",
+        "rewriteRelativeImportExtensions": true,
     }
 }

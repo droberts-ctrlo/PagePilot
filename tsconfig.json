@@ -1,13 +1,14 @@
 {
   "compilerOptions": {
-    "target": "ES2022",                                  /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
-    "module": "CommonJS",                                /* Specify what module code is generated. */
     "esModuleInterop": true,                             /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables 'allowSyntheticDefaultImports' for type compatibility. */
     "forceConsistentCasingInFileNames": true,            /* Ensure that casing is correct in imports. */
     "strict": true,                                      /* Enable all strict type-checking options. */
     "skipLibCheck": true,                                /* Skip type checking all .d.ts files. */
     "moduleResolution": "node",
-    "baseUrl": "./src"
+    "baseUrl": "./src",
+    "alwaysStrict": true,
+    "composite": true,
+    "lib": ["dom", "es2015", "es2016", "es2017", "es2018", "es2019", "es2020", "esnext"],
   },
   "exclude": ["node_modules", "public", "src/**/*.test.tsx", "src/**/*.test.ts", "dist"],
 }

@@ -1,6 +1,5 @@
 import { CommonOptions } from '../../common/options.js';
 import TooltipButton from './TooltipButton.js';
-
 /**
  * Tooltip configuration
  */
@@ -8,9 +7,9 @@ export interface TooltipConfig<T extends HTMLElement = HTMLElement> extends Comm
     /**
      * The element to attach the tooltip to
      */
-    element: T
+    element: T;
     /**
      * The buttons to show in the tooltip
      */
-    buttons: TooltipButton[]
+    buttons: TooltipButton[];
 }

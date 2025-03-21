@@ -1,6 +1,6 @@
 {
   "name": "page-pilot",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Walkthrough component for use with BootStrap 5",
   "repository": "https://github.com/droberts-ctrlo/PagePilot",
   "author": "Dave Roberts <d.roberts@ctrlo.com>",
@@ -14,8 +14,7 @@
       "import": "./dist/esm/index.js",
       "require": "./dist/cjs/index.js",
       "css": "./dist/css/index.css",
-      "default": "./dist/esm/index.js",
-      "types": "./dist/types/index.d.ts"
+      "default": "./dist/esm/index.js"
     }
   },
   "devDependencies": {
@@ -36,7 +35,7 @@
   "scripts": {
     "test": "jest",
     "serve": "webpack serve --mode development --no-client-overlay",
-    "build": "tsc -b tsconfig.esm.json tsconfig.cjs.json tsconfig.types.json && sass ./src/css/index.scss ./dist/css/index.css --no-source-map -q -s compressed",
+    "build": "tsc -b tsconfig.esm.json tsconfig.cjs.json && sass ./src/css/index.scss ./dist/css/index.css --no-source-map -q -s compressed",
     "build:dev": "webpack --mode development --progress -w",
     "postbuild": "node install.cjs"
   },

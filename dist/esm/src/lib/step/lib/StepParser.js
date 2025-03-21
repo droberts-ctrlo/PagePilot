@@ -1,24 +1,23 @@
 import { prefix } from '../../common/constants.js';
-import Step from './Step.js';
-import { CommonOptions } from '../../common/options.js';
-
 /**
  * Parses an element into a step
  * @param element The element to parse
  * @param stepOptions The options for the step
  */
-export default <T extends HTMLElement = HTMLElement>(element: T, stepOptions: CommonOptions = { prefix }) => {
+export default (element, stepOptions = { prefix }) => {
     const data = element.dataset;
     const myPrefix = stepOptions.prefix;
-    if (!data[`${myPrefix}Number`]) throw new Error('No number found on element');
-    if (!data[`${myPrefix}Content`]) throw new Error('No content found on element');
-    const step: Step<T> = {
+    if (!data[`${myPrefix}Number`])
+        throw new Error('No number found on element');
+    if (!data[`${myPrefix}Content`])
+        throw new Error('No content found on element');
+    const step = {
         active: false,
         element,
         completed: false,
         content: data[`${myPrefix}Content`],
         disabled: data[`${myPrefix}Disabled`] === 'true',
-        number: parseInt(data[`${myPrefix}Number`]!),
+        number: parseInt(data[`${myPrefix}Number`]),
         title: data[`${myPrefix}Title`]
     };
     return step;

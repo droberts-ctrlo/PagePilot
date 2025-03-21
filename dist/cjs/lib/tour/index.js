@@ -1,2 +1,1 @@
-import Tour from './lib/Tour';
-export { Tour };
+export { default as Tour } from './lib/Tour';

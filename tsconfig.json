@@ -7,13 +7,7 @@
     "strict": true,                                      /* Enable all strict type-checking options. */
     "skipLibCheck": true,                                /* Skip type checking all .d.ts files. */
     "moduleResolution": "node",
-    "paths": {
-      "common/*": ["./src/lib/common/*"],
-      "highlighter": ["./src/lib/highlighter"],
-      "step": ["./src/lib/step"],
-      "tooltip": ["./src/lib/tooltip"],
-      "tour": ["./src/lib/tour"],
-    }
+    "baseUrl": "./src"
   },
   "exclude": ["node_modules", "public", "src/**/*.test.tsx", "src/**/*.test.ts", "dist"],
 }

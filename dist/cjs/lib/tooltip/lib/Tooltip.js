@@ -1,7 +1,14 @@
 import { Popover } from 'bootstrap';
-import { prefix as commonPrefix } from 'common/constants';
+import { prefix as commonPrefix } from '../../common/constants';
+/**
+ * A class to create a tooltip
+ */
 export default class Tooltip {
     popover;
+    /**
+     * Create a new tooltip
+     * @param config The tooltip configuration
+     */
     constructor({ element, buttons, prefix = commonPrefix }) {
         if (!element)
             throw new Error('Element not found');
@@ -51,9 +58,15 @@ export default class Tooltip {
             button.addEventListener('click', onClick);
         return button;
     }
+    /**
+     * Show the tooltip
+     */
     show() {
         this.popover.show();
     }
+    /**
+     * Hide the tooltip
+     */
     hide() {
         this.popover.hide();
     }

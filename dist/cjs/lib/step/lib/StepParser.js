@@ -1,4 +1,4 @@
-import { prefix } from 'common/constants';
+import { prefix } from '../../common/constants';
 /**
  * Parses an element into a step
  * @param element The element to parse

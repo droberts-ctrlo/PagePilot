@@ -3,6 +3,9 @@
  */
 export default class Highlighter {
     fade;
+    /**
+     * Creates a new highlighter
+     */
     constructor() {
         this.createFade();
         this.reset();
@@ -28,6 +31,10 @@ export default class Highlighter {
             element.classList.add('highlight');
         }
     }
+    /**
+     * Removes the highlight from an element
+     * @param element The element to remove the highlight from
+     */
     removeHighlight(element) {
         if (element.classList.contains('highlight')) {
             element.classList.remove('highlight');

@@ -10,6 +10,10 @@ export default class Stepper {
     raiseEvent(element, event) {
         element.dispatchEvent(new CustomEvent(event));
     }
+    /**
+     * Get the first step that is not disabled
+     * @returns The last step that is not disabled
+     */
     getLastStep() {
         if (this.steps.length == 0)
             return undefined;
@@ -33,6 +37,11 @@ export default class Stepper {
     get stepCount() {
         return this.steps.length;
     }
+    /**
+     * Create a new Stepper
+     * @param rootElement The root element of the stepper
+     * @param steps The steps to manage
+     */
     constructor(rootElement, steps) {
         this.rootElement = rootElement;
         this.steps = steps;
@@ -42,7 +51,7 @@ export default class Stepper {
             throw new Error('No steps provided');
     }
     /**
-     * Move to the next step
+     * Move to the next step if there is one available
      */
     next() {
         const activeStep = this.activeStep;
@@ -71,7 +80,7 @@ export default class Stepper {
         nextStep.active = true;
     }
     /**
-     * Move to the previous step
+     * Move to the previous step if there is one available
      */
     previous() {
         const activeStep = this.activeStep;

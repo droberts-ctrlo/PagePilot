@@ -12,6 +12,10 @@ export default class Stepper<T extends HTMLElement = HTMLElement> {
         element.dispatchEvent(new CustomEvent(event));
     }
 
+    /**
+     * Get the first step that is not disabled
+     * @returns The last step that is not disabled
+     */
     getLastStep() {
         if (this.steps.length == 0) return undefined;
         let last = this.steps[this.steps.length - 1];
@@ -37,13 +41,18 @@ export default class Stepper<T extends HTMLElement = HTMLElement> {
         return this.steps.length;
     }
 
+    /**
+     * Create a new Stepper
+     * @param rootElement The root element of the stepper
+     * @param steps The steps to manage
+     */
     constructor(private rootElement: HTMLElement, private steps: Step<T>[]) {
         if (!Array.isArray(steps)) throw new Error('Steps must be an array');
         if (steps.length === 0) throw new Error('No steps provided');
     }
 
     /**
-     * Move to the next step
+     * Move to the next step if there is one available
      */
     next() {
         const activeStep = this.activeStep;
@@ -73,7 +82,7 @@ export default class Stepper<T extends HTMLElement = HTMLElement> {
     }
 
     /**
-     * Move to the previous step
+     * Move to the previous step if there is one available
      */
     previous() {
         const activeStep = this.activeStep;

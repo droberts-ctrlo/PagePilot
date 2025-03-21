@@ -1,9 +1,16 @@
-import { Tooltip } from 'tooltip';
-import { StepParser, Stepper, StepSorter } from 'step';
-import { Highlight } from 'highlighter';
+import { Tooltip } from '../../tooltip';
+import { StepParser, Stepper, StepSorter } from '../../step';
+import { Highlight } from '../../highlighter';
 import 'bootstrap';
+/**
+ * A class to create a tour
+ */
 export default class Tour {
     stepper;
+    /**
+     * Create a new tour
+     * @param stepElements The elements to use as steps
+     */
     constructor(stepElements) {
         const steps = this.createSteps(stepElements);
         const highlighter = new Highlight();
@@ -57,6 +64,9 @@ export default class Tour {
         steps.sort(StepSorter);
         return steps;
     }
+    /**
+     * Start the tour
+     */
     start() {
         this.stepper.next();
     }

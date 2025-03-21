@@ -1,4 +1,4 @@
-import Step from './Step';
+import Step from './Step.js';
 
 /**
  * Sorts steps by their number

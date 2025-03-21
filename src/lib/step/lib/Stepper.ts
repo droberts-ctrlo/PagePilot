@@ -1,5 +1,5 @@
-import { Events } from './Events';
-import Step from './Step';
+import { Events } from './Events.js';
+import Step from './Step.js';
 
 /**
  * A class to manage a set of steps

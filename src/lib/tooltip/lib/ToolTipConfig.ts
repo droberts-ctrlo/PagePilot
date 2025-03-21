@@ -1,5 +1,5 @@
-import { CommonOptions } from '../../common/options';
-import TooltipButton from './TooltipButton';
+import { CommonOptions } from '../../common/options.js';
+import TooltipButton from './TooltipButton.js';
 
 /**
  * Tooltip configuration

@@ -1,2 +1,2 @@
-export { default as Tooltip } from './lib/Tooltip';
-export { default as TooltipButton } from './lib/TooltipButton';
+export { default as Tooltip } from './lib/Tooltip.js';
+export { default as TooltipButton } from './lib/TooltipButton.js';

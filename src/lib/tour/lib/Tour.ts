@@ -1,6 +1,6 @@
-import { Tooltip, TooltipButton } from '../../tooltip';
-import { Step, StepParser, Stepper, StepSorter } from '../../step';
-import { Highlight } from '../../highlighter';
+import { Tooltip, TooltipButton } from '../../tooltip/index.js';
+import { Step, StepParser, Stepper, StepSorter } from '../../step/index.js';
+import { Highlight } from '../../highlighter/index.js';
 import 'bootstrap';
 
 /**

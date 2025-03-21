@@ -1,1 +1,1 @@
-export { default as Highlight } from './lib/Highlight';
+export { default as Highlight } from './lib/Highlight.js';

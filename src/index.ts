@@ -1,4 +1,4 @@
-import { Tour } from './lib/tour';
+import { Tour } from './lib/tour/index.js';
 import 'bootstrap';
 
 /**

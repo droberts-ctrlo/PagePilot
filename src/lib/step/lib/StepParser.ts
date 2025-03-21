@@ -1,6 +1,6 @@
-import { prefix } from '../../common/constants';
-import Step from './Step';
-import { CommonOptions } from '../../common/options';
+import { prefix } from '../../common/constants.js';
+import Step from './Step.js';
+import { CommonOptions } from '../../common/options.js';
 
 /**
  * Parses an element into a step

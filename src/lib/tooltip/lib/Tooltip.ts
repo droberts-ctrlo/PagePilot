@@ -1,7 +1,7 @@
 import { Popover } from 'bootstrap';
-import { prefix as commonPrefix } from '../../common/constants';
-import TooltipButton from './TooltipButton';
-import { TooltipConfig } from './ToolTipConfig';
+import { prefix as commonPrefix } from '../../common/constants.js';
+import TooltipButton from './TooltipButton.js';
+import { TooltipConfig } from './ToolTipConfig.js';
 
 /**
  * A class to create a tooltip

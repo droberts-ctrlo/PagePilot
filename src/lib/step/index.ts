@@ -1,6 +1,4 @@
-import Step from './lib/Step';
-import StepParser from './lib/StepParser';
-import StepSorter from './lib/StepSorter';
-import Stepper from './lib/Stepper';
-
-export { Step, StepParser, StepSorter, Stepper };
+export { default as Step } from './lib/Step';
+export { default as StepParser } from './lib/StepParser';
+export { default as StepSorter } from './lib/StepSorter';
+export { default as Stepper } from './lib/Stepper';

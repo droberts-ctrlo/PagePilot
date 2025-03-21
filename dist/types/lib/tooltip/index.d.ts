@@ -1,3 +1,2 @@
-import Tooltip from './lib/Tooltip';
-import TooltipButton from './lib/TooltipButton';
-export { Tooltip, TooltipButton };
+export { default as Tooltip } from './lib/Tooltip';
+export { default as TooltipButton } from './lib/TooltipButton';

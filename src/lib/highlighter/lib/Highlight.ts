@@ -4,6 +4,9 @@
 export default class Highlighter {
     private fade!: HTMLDivElement;
 
+    /**
+     * Creates a new highlighter
+     */
     constructor() {
         this.createFade();
         this.reset();
@@ -31,6 +34,10 @@ export default class Highlighter {
         }
     }
 
+    /**
+     * Removes the highlight from an element
+     * @param element The element to remove the highlight from
+     */
     removeHighlight<T extends HTMLElement>(element: T) {
         if (element.classList.contains('highlight')) {
             element.classList.remove('highlight');

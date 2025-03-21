@@ -1,11 +1,18 @@
-import { Tooltip, TooltipButton } from 'tooltip';
-import { Step, StepParser, Stepper, StepSorter } from 'step';
-import { Highlight } from 'highlighter';
+import { Tooltip, TooltipButton } from '../../tooltip';
+import { Step, StepParser, Stepper, StepSorter } from '../../step';
+import { Highlight } from '../../highlighter';
 import 'bootstrap';
 
+/**
+ * A class to create a tour
+ */
 export default class Tour<T extends HTMLElement = HTMLElement> {
     private stepper: Stepper<T>;
 
+    /**
+     * Create a new tour
+     * @param stepElements The elements to use as steps
+     */
     constructor(stepElements: T[]) {
         const steps = this.createSteps(stepElements);
         const highlighter = new Highlight();
@@ -63,6 +70,9 @@ export default class Tour<T extends HTMLElement = HTMLElement> {
         return steps;
     }
 
+    /**
+     * Start the tour
+     */
     start() {
         this.stepper.next();
     }

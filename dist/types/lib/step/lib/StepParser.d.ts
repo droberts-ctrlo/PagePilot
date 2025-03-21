@@ -1,5 +1,5 @@
 import Step from './Step';
-import { CommonOptions } from 'common/options';
+import { CommonOptions } from '../../common/options';
 /**
  * Parses an element into a step
  * @param element The element to parse
